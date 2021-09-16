@@ -4,7 +4,20 @@ import Form from './Form/form'
 
 function Contacts() {
 
-    const [contacts, setContacts] = useState([]);
+    const [contacts, setContacts] = useState([
+        {
+            fullname: "İlhan",
+            phone_number:"123123"
+        },
+        {
+            fullname: "Osman Emre",
+            phone_number:"321456"
+        },
+        {
+            fullname: "Arda",
+            phone_number:"985236"
+        }
+    ]);
     
     useEffect(() => {
         console.log(contacts)
@@ -13,7 +26,7 @@ function Contacts() {
     return (
         <div>
             
-            <List />
+            <List contacts={ contacts }/>
             <Form addContact={setContacts} contacts={ contacts }/>
         </div>
     )

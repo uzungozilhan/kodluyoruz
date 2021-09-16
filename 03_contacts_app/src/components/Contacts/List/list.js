@@ -1,9 +1,23 @@
-import React from 'react'
+import {useState} from 'react'
 
-function List() {
+function List({ contacts }) {
+    
+    const [filterText, setFilterText] = useState("");
+
     return (
         <div>
-            Contact List
+
+            <input placeholder="Filter Contact"
+                value={filterText}
+                onChange={ (e) => setFilterText(e.target.value) }/>
+
+            <ul>
+                {
+                    contacts.map((contact, i) => (
+                        <li key={i}>{ contact.fullname }</li>
+                    ))
+                }
+            </ul>
         </div>
     )
 }
